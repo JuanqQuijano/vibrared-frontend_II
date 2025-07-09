@@ -1,16 +1,19 @@
 // src/api/axiosConfig.js
 import axios from 'axios';
 
-// --- IMPORTANTE ---
-// Reemplaza '<TU_IP_PUBLICA_AZURE>' con la IP pública de tu VM de Azure.
-// El puerto ahora es 3000, según tu nueva configuración.
-const API_BASE_URL = 'http://172.179.242.40:3000/api';
+const API_BASE_URL = 'http://<TU_IP_PUBLICA_AZURE>:3000/api';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+});
+
+// Interceptor para añadir el token a las cabeceras
+apiClient.interceptors.request.use((config) => {
+  const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+  if (userInfo && userInfo.token) {
+    config.headers.Authorization = `Bearer ${userInfo.token}`;
+  }
+  return config;
 });
 
 export default apiClient;
