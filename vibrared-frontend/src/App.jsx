@@ -1,23 +1,18 @@
 
+// src/main.jsx
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import PostsPage from './pages/PostsPage';
-import UsersPage from './pages/UsersPage';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext'; // <-- Importar
+import App from './App.jsx';
+import './index.css';
 
-function App() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Navigate to="/posts" />} />
-          <Route path="/posts" element={<PostsPage />} />
-          <Route path="/users" element={<UsersPage />} />
-        </Routes>
-      </main>
-    </>
-  );
-}
-
-export default App;
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider> {/* <-- Envolver App */}
+        <App />
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
