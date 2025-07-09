@@ -1,0 +1,62 @@
+/* src/index.css */
+body {
+  font-family: sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  color: #1c1e21;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dddfe2;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #0d6efd;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #dddfe2;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card h4 {
+  margin: 0 0 0.5rem 0;
+}
+
+.card p {
+  margin: 0.25rem 0;
+}
+
+.card-footer {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f0f2f5;
+  font-size: 0.9rem;
+  color: #65676b;
+  display: flex;
+  gap: 1rem;
+}
